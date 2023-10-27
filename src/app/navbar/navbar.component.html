@@ -1,0 +1,59 @@
+<ng-template #icon>
+  <tui-avatar
+    size="s"
+    [text]="getFullName()"
+    [rounded]="false"
+    [autoColor]="true"
+    class="tui-space_right-3 tui-space_left-2"
+  ></tui-avatar>
+</ng-template>
+
+
+
+<div class="nav">
+  <div class="app-logo">
+    <a href="/">GRAVITON</a>
+  </div>
+
+  <div class="nav-links">
+    <a class="nav-link" [routerLink]="'profile'" routerLinkActive="active">
+      Профиль
+    </a>
+    <a class="nav-link" [routerLink]="'lessons'" routerLinkActive="active">
+      Занятия
+    </a>
+    <a class="nav-link" [routerLink]="'about'" routerLinkActive="active">
+      О школе
+    </a>
+  </div>
+
+  <div class="spacer"></div>
+
+  <tui-hosted-dropdown
+    tuiDropdownHover
+    tuiDropdownLimitWidth="fixed"
+    class="example"
+    [content]="content"
+    [(open)]="dropdownOpen"
+  >
+    <button *ngIf="userService.getUser()" tuiButton type="button" [size]="'m'" appearance="flat" [icon]="icon">
+      {{userService.getUser()?.firstName}}
+    </button>
+  </tui-hosted-dropdown>
+
+  <a *ngIf="!userService.getUser()" href="login" tuiButton type="button" appearance="secondary" [size]="'m'" [iconRight]="'tuiIconLogIn'">
+    Личный кабинет
+  </a>
+</div>
+
+<ng-template
+  #content
+  let-activeZone
+>
+  <tui-data-list
+    tuiDataListDropdownManager
+    [tuiActiveZoneParent]="activeZone"
+  >
+    <button tuiButton type="button" appearance="secondary-destructive" [size]="'s'" [iconRight]="'tuiIconLogOut'" (click)="logout()">Выйти</button>
+  </tui-data-list>
+</ng-template>

@@ -1,0 +1,27 @@
+.student-profile {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "level wallet"
+    "stats stats"
+    "schedule schedule";
+  gap: 20px;
+}
+
+.level {
+  grid-area: level;
+}
+
+.stats {
+  grid-area: stats;
+}
+
+.wallet {
+  grid-area: wallet;
+}
+
+.schedule {
+  grid-area: schedule;
+}
+

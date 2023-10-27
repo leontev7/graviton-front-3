@@ -1,0 +1,67 @@
+<tui-island [hoverable]="true" (click)="openWallet = true">
+  <p class="tui-island__category">Кошелёк</p>
+  <tui-money
+    class="extra-large"
+    [value]="bankAccount.balance"
+  ></tui-money>
+  <div class="tui-island__content"></div>
+</tui-island>
+
+<app-modal [type]="1" [title]="'Кошелёк'" [opened]="openWallet" (closed)="openWallet = false">
+  <div class="tui-col v-list">
+    <tui-island>
+      <p class="tui-island__category">Текущий баланс</p>
+      <div style="display: flex; align-items: center; justify-content: space-between">
+        <tui-money style="font-weight: bold; font-size: 30px" class="extra-large" [colored]="true" [value]="bankAccount.balance"></tui-money>
+        <button tuiButton [size]="'m'" appearance="secondary" (click)="openDialog = true">Пополнить</button>
+      </div>
+    </tui-island>
+    <h2>Транзакции</h2>
+
+    <!--<div style="display: flex; flex-direction: column; gap: 10px">
+      <tui-island>
+        <p class="tui-island__category">Пополнение счета</p>
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <tui-money class="extra-large" [colored]="true" [value]="10728.9"></tui-money>
+          <span>{{ '12.09.2023 в 18:23' }}</span>
+        </div>
+        <div class="date"></div>
+      </tui-island>
+
+      <tui-island>
+        <p class="tui-island__category">Оплата курса</p>
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <tui-money class="extra-large" [colored]="true" [value]="-108.9"></tui-money>
+          <span>{{ '12.09.2023 в 18:23' }}</span>
+        </div>
+      </tui-island>
+    </div>-->
+  </div>
+</app-modal>
+
+
+<ng-template
+  let-observer
+  [tuiDialogOptions]="{label: 'Пополнить баланс', size: 's'}"
+  [(tuiDialog)]="openDialog"
+>
+    <p>В телеграм бот <a href="https://t.me/graviton_school_bot" target="_blank">Graviton</a> будет направлен счет на оплату</p>
+    <tui-input-number
+      [tuiTextfieldPostfix]="'₽'"
+      [(ngModel)]="amount"
+      tuiAutoFocus
+      [min]="0.01"
+      [max]="20000"
+      [precision]="2"
+    >
+      Введите сумму
+    </tui-input-number>
+    <p>
+      <button
+        tuiButton
+        (click)="sendInvoice()"
+      >
+        Ок
+      </button>
+    </p>
+</ng-template>

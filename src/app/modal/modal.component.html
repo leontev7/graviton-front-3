@@ -1,0 +1,17 @@
+<div
+	(tuiSwipe)="onSwipe($event)"
+	[classList]="opened ? 'modal_' + type + ' opened' : 'modal_' + type"
+>
+	<div class="modal-close-button" (click)="close()">
+		<div *ngIf="type === 1">Закрыть</div>
+    <tui-svg *ngIf="type === 2" src="tuiIconChevronLeftLarge"></tui-svg>
+	</div>
+
+	<div class="modal-title">
+		{{ title }}
+	</div>
+
+	<div class="modal-content">
+		<ng-content></ng-content>
+	</div>
+</div>

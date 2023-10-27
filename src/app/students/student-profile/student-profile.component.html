@@ -1,0 +1,36 @@
+<div class="student-profile" *ngIf="student">
+  <tui-island class="level" [hoverable]="true" (click)="openLevels = true">
+    <p class="tui-island__category">Твой уровень</p>
+    <h3 class="tui-island__title">{{student.level}}</h3>
+    <div class="tui-island__content"></div>
+  </tui-island>
+
+  <app-wallet class="wallet" [bankAccount]="student.bankAccount"></app-wallet>
+
+  <tui-island class="stats" [hoverable]="true">
+    <p class="tui-island__category">Статистика</p>
+    <h3 class="tui-island__title">Новичок</h3>
+    <div class="tui-island__content"></div>
+  </tui-island>
+
+  <tui-island class="schedule">
+    <p class="tui-island__category">Расписание</p>
+    <div class="tui-island__content" style="display: flex; align-items: center; justify-content: center">
+      <tui-calendar></tui-calendar>
+    </div>
+  </tui-island>
+
+</div>
+
+<app-modal [type]="1" [title]="'Уровни'" [opened]="openLevels" (closed)="openLevels = false">
+  <div class="tui-col v-list">
+    <tui-island *ngFor="let level of levels; let i = index">
+      <p class="tui-island__category">{{ 'Уровень ' + i }}</p>
+      <div style="display: flex; align-items: center; justify-content: space-between">
+        <div style="font-weight: bold; font-size: 18px">{{ level.title }}</div>
+        <span style="color: forestgreen">{{ 'от ' + level.points + ' XP' }}</span>
+      </div>
+    </tui-island>
+  </div>
+</app-modal>
+

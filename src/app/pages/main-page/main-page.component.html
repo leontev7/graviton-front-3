@@ -1,0 +1,27 @@
+<tui-carousel
+  [duration]="4000"
+  [(index)]="index"
+>
+  <ng-container *ngFor="let item of items">
+    <tui-island *tuiItem style="height: 600px; background-color: orange; color: white">
+
+      <h1 style="font-size: 50px">Подписывайтесь на наш телеграм канал</h1>
+      <p>Подписывайтесь</p>
+      <a
+        href="https://t.me/graviton_school"
+        tuiButton
+        target="_blank"
+      >
+        Подписаться
+      </a>
+    </tui-island>
+  </ng-container>
+</tui-carousel>
+<tui-pagination
+  size="s"
+  class="pagination"
+  [length]="items.length"
+  [(index)]="index"
+></tui-pagination>
+
+<h1>Наши преподаватели</h1>

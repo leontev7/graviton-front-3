@@ -1,0 +1,62 @@
+
+<div style="display: flex; flex-direction: row; align-items: center">
+  <div class="user-info" (click)="openInfo = true">
+    <tui-avatar
+      size="m"
+      [text]="getFullName()"
+      [rounded]="false"
+      [autoColor]="true"
+      class="tui-space_right-3 tui-space_left-2"
+    ></tui-avatar>
+    <h1>{{getFullName()}}</h1>
+    <tui-svg style="margin-top: 5px" src="tuiIconChevronRightLarge"></tui-svg>
+  </div>
+  <div class="spacer"></div>
+  <button tuiButton [size]="'m'" appearance="accent" [icon]="'tuiIconGiftLarge'">За друга</button>
+</div>
+
+<student-profile *ngIf="isStudent()"></student-profile>
+<tutor-profile *ngIf="isTutor()"></tutor-profile>
+
+<app-modal [type]="2" [title]="'Профиль'" [opened]="openInfo" (closed)="openInfo = false">
+  <div class="tui-col v-list" style="width: 100%; align-items: center">
+    <tui-avatar
+      size="xl"
+      [text]="personalDataForm.controls.firstName.value + ' ' + personalDataForm.controls.lastName.value"
+      [rounded]="false"
+      [autoColor]="true"
+    ></tui-avatar>
+    <form
+      class="b-form"
+      [formGroup]="personalDataForm"
+    >
+      <tui-input
+        formControlName="firstName"
+        tuiTextfieldSize="l"
+        style="min-width: 200px"
+      >
+        Имя
+        <input
+          autocomplete="name"
+          tuiTextfield
+          type="text"
+        />
+      </tui-input>
+
+      <tui-input
+        formControlName="lastName"
+        tuiTextfieldSize="l"
+        style="min-width: 200px"
+      >
+        Фамилия
+        <input
+          autocomplete="name"
+          tuiTextfield
+          type="text"
+        />
+      </tui-input>
+
+      <button tuiButton type="submit">Сохранить</button>
+    </form>
+  </div>
+</app-modal>

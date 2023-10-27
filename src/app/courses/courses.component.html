@@ -1,0 +1,42 @@
+<div style="display: flex; align-items: center">
+  <h1>Курсы</h1>
+  <div class="spacer"></div>
+  <button tuiButton size="m" (click)="openNewCourseDialog = true">Новый курс</button>
+</div>
+
+
+
+<ng-template
+  let-observer
+  [tuiDialogOptions]="{label: 'Новый курс', size: 's'}"
+  [(tuiDialog)]="openNewCourseDialog"
+>
+
+  <form
+    class="b-form"
+    [formGroup]="newCourseForm"
+  >
+    <tui-input
+      formControlName="courseName"
+      tuiTextfieldSize="l"
+      style="min-width: 200px"
+    >
+      Название курса
+      <input
+        autocomplete="name"
+        tuiTextfield
+        type="text"
+      />
+    </tui-input>
+  </form>
+  <p>
+    <button
+      tuiButton
+      size="l"
+      [disabled]="newCourseForm.controls.courseName.value == ''"
+      (click)="createCourse()"
+    >
+      Создать
+    </button>
+  </p>
+</ng-template>

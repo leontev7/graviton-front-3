@@ -1,0 +1,8 @@
+<div style="width: 100%; height: calc(100vh - 100px); display: flex; align-items: center; justify-content: center;">
+  <tui-island>
+    <h3 class="tui-island__title">Вход в Graviton</h3>
+    <div class="tui-island__content">
+      <app-telegram-login-widget (loggedIn)="authUser($event)"></app-telegram-login-widget>
+    </div>
+  </tui-island>
+</div>
