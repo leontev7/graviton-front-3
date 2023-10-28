@@ -18,6 +18,11 @@
 <student-profile *ngIf="isStudent()"></student-profile>
 <tutor-profile *ngIf="isTutor()"></tutor-profile>
 
+<tui-island class="level" style="margin-top: 20px">
+  <p class="tui-island__category">Настройки</p>
+</tui-island>
+
+
 <app-modal [type]="2" [title]="'Профиль'" [opened]="openInfo" (closed)="openInfo = false">
   <div class="tui-col v-list" style="width: 100%; align-items: center">
     <tui-avatar

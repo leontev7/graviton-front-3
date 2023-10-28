@@ -1,0 +1,18 @@
+<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 50px; border-radius: 50px; margin-bottom: 50px; background: linear-gradient(to right,  white, royalblue); justify-content: space-around;">
+  <div style="display: flex; flex-direction: column;">
+    <h1 style="font-size: 50px">Колесо фортуны</h1>
+    <div style="font-weight: bold">крути колесо и получай<br>выпавшее число на стартовый<br>баланс после регистрации</div>
+    <div class="spacer"></div>
+    <div *ngIf="stopped">
+      <p style="font-weight: bold">{{'после регистрации вы получите ' + values.at(lastSelection) + ' рублей на счет'}}</p>
+      <a href="login" tuiButton appearance="secondary">{{'Зарегистрироваться'}}</a>
+    </div>
+  </div>
+
+  <div id="wheelOfFortune">
+    <canvas #wheel id="wheel" width="400" height="400"></canvas>
+    <div #spin id="spin" (click)="spinner()">
+      Крутить
+    </div>
+  </div>
+</div>

@@ -1,16 +1,38 @@
 <div class="student-profile" *ngIf="student">
   <tui-island class="level" [hoverable]="true" (click)="openLevels = true">
     <p class="tui-island__category">Твой уровень</p>
-    <h3 class="tui-island__title">{{student.level}}</h3>
-    <div class="tui-island__content"></div>
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <div style="font-weight: bold; font-size: 18px">{{ student.level }}</div>
+      <span style="color: forestgreen">{{ student.points + ' XP' }}</span>
+    </div>
+
   </tui-island>
 
   <app-wallet class="wallet" [bankAccount]="student.bankAccount"></app-wallet>
 
   <tui-island class="stats" [hoverable]="true">
     <p class="tui-island__category">Статистика</p>
-    <h3 class="tui-island__title">Новичок</h3>
-    <div class="tui-island__content"></div>
+    <div style="display:flex; flex-direction: row; align-items: center">
+      <div class="stat-item">
+        <span><span>{{student.courses.length}}</span> задач</span>
+        <div class="tui-island__content">
+          <tui-pie-chart
+            size="s"
+            [value]="value"
+          ></tui-pie-chart>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="stat-item">
+        <span><span>{{student.courses.length}}</span> курсов</span>
+        <div class="tui-island__content">
+          <tui-ring-chart
+            size="s"
+            [value]="value"
+          ></tui-ring-chart>
+        </div>
+      </div>
+    </div>
   </tui-island>
 
   <tui-island class="schedule">

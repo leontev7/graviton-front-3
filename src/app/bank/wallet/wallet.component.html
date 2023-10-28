@@ -18,24 +18,16 @@
     </tui-island>
     <h2>Транзакции</h2>
 
-    <!--<div style="display: flex; flex-direction: column; gap: 10px">
-      <tui-island>
-        <p class="tui-island__category">Пополнение счета</p>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <tui-island *ngFor="let transaction of getSortedTransactions()">
+        <p class="tui-island__category" *ngIf="transaction.type === 0">Пополнение счета</p>
         <div style="display: flex; align-items: center; justify-content: space-between">
-          <tui-money class="extra-large" [colored]="true" [value]="10728.9"></tui-money>
-          <span>{{ '12.09.2023 в 18:23' }}</span>
+          <tui-money class="extra-large" [colored]="true" [value]="transaction.amount"></tui-money>
+          <span>{{ getFormattedDate(transaction.dateTime) }}</span>
         </div>
         <div class="date"></div>
       </tui-island>
-
-      <tui-island>
-        <p class="tui-island__category">Оплата курса</p>
-        <div style="display: flex; align-items: center; justify-content: space-between">
-          <tui-money class="extra-large" [colored]="true" [value]="-108.9"></tui-money>
-          <span>{{ '12.09.2023 в 18:23' }}</span>
-        </div>
-      </tui-island>
-    </div>-->
+    </div>
   </div>
 </app-modal>
 

@@ -5,6 +5,7 @@ export interface Transaction {
   recipientId: number;
   amount: number;
   status: number;
+  type: number;
   message: string;
   dateTime: string;
 }

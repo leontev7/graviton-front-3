@@ -3,7 +3,7 @@ import {User} from "../users/user";
 import {Course} from "../courses/course";
 
 
-export interface Student {
+export interface Student extends User {
   points: number;
   grade: number;
   level: string;

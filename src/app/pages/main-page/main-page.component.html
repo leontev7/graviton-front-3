@@ -1,27 +1,133 @@
+<div class="school-title">GRAVITON – онлайн школа</div>
+
+<app-fortune-wheel></app-fortune-wheel>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 100px">
+  <tui-island [hoverable]="true" class="card green">
+    <div class="card-content">
+      <tui-svg style="color: white" src="tuiIconUsersLarge"></tui-svg>
+      <div class="text-content">
+        <div class="title">Преподаватели</div>
+        <div class="content">лучшие преподаватели для вас</div>
+      </div>
+    </div>
+  </tui-island>
+
+  <tui-island [hoverable]="true" class="card purple">
+    <div class="card-content">
+      <tui-svg style="color: white" src="tuiIconLayersLarge"></tui-svg>
+      <div class="text-content">
+        <div class="title">Курсы</div>
+        <div class="content">разрабатываем собственные курсы</div>
+      </div>
+    </div>
+  </tui-island>
+
+  <tui-island [hoverable]="true" class="card orange">
+    <div class="card-content">
+      <tui-svg style="color: white" src="tuiIconCheckSquareLarge"></tui-svg>
+      <div class="text-content">
+        <div class="title">Задачи</div>
+        <div class="content">решайте задачи каждый день</div>
+      </div>
+    </div>
+  </tui-island>
+
+  <tui-island [hoverable]="true" class="card blue">
+    <div class="card-content">
+      <tui-svg style="color: white" src="tuiIconSendLarge"></tui-svg>
+      <div class="text-content">
+        <div class="title">Телеграм</div>
+        <div class="content">удобные уведомления</div>
+      </div>
+    </div>
+  </tui-island>
+</div>
+
+<div style="background-color: whitesmoke; border-radius: 30px; border: 5px dashed royalblue; margin-bottom: 100px">
+  <div style="margin: 10px; background-color: white; padding: 20px; border-radius: 30px; display: flex; flex-direction: column; gap: 20px; align-items: center">
+    <span style="font-weight: bold; margin-bottom: 30px; font-size: 30px">Создано для вас с любовью
+      <span style="color: orangered">♥️</span>
+    </span>
+
+    <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;  width: 90%">
+      <div style="max-width: 300px; display: flex; flex-direction: column; gap: 10px">
+        <div style="font-weight: bold; font-size: 30px; color: royalblue">1</div>
+        <div style="font-size: 24px; font-weight: bold;">Экзамены</div>
+        <div style="font-size: 14px">готовим школьников к ЕГЭ и ОГЭ, а студентов к экзаменам в вузе</div>
+      </div>
+
+      <div style="max-width: 300px; display: flex; flex-direction: column; gap: 10px">
+        <div style="font-weight: bold; font-size: 30px; color: royalblue">2</div>
+        <div style="font-size: 24px; font-weight: bold;">Олимпиады</div>
+        <div style="font-size: 14px">готовим к олимпиадам РСОШ: Физтех, Росатом, Курчатов и другим</div>
+      </div>
+
+      <div style="max-width: 300px; display: flex; flex-direction: column; gap: 10px">
+        <div style="font-weight: bold; font-size: 30px; color: royalblue">3</div>
+        <div style="font-size: 24px; font-weight: bold;">Школьная программа</div>
+        <div style="font-size: 14px">у нас вы можете подтянуть школьные знания и подгтовиться к контрольным</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h1 style="font-size: 30px; text-align: center">Отзывы</h1>
+<div
+  tuiCarouselButtons
+  style="display: flex; align-items: center"
+>
+  <button
+    icon="tuiIconChevronLeftLarge"
+    title="Previous"
+    tuiIconButton
+    type="button"
+    (click)="carousel.prev()"
+  ></button>
 <tui-carousel
+  #carousel
   [duration]="4000"
   [(index)]="index"
 >
   <ng-container *ngFor="let item of items">
-    <tui-island *tuiItem style="height: 600px; background-color: orange; color: white">
+    <tui-island *tuiItem style="align-self: center; width: 300px">
 
-      <h1 style="font-size: 50px">Подписывайтесь на наш телеграм канал</h1>
-      <p>Подписывайтесь</p>
-      <a
-        href="https://t.me/graviton_school"
-        tuiButton
-        target="_blank"
-      >
-        Подписаться
-      </a>
+      <div style="display: flex; align-items: center; margin-bottom: 10px">
+        <tui-avatar text="{{item.name}}" size="s" style="margin-right: 10px"></tui-avatar>
+        <span style="font-size: 16px; font-weight: bold">{{item.name}}</span>
+      </div>
+
+      <span>{{item.text}}</span>
     </tui-island>
   </ng-container>
 </tui-carousel>
+  <button
+    icon="tuiIconChevronRightLarge"
+    title="Next"
+    tuiIconButton
+    type="button"
+    (click)="carousel.next()"
+  ></button>
+</div>
 <tui-pagination
   size="s"
   class="pagination"
+  style="margin-top: 10px"
   [length]="items.length"
   [(index)]="index"
 ></tui-pagination>
 
-<h1>Наши преподаватели</h1>
+<footer class="tui-space_top-5 tui-space_bottom-5">
+  <div class="tui-group tui-group_inline">
+    <a tuiLink routerLink="/about" class="tui-link">О нас</a>
+    <a tuiLink routerLink="/contact" class="tui-link">Контакты</a>
+    <a tuiLink routerLink="/terms" class="tui-link">Условия использования</a>
+    <a tuiLink routerLink="/privacy" class="tui-link">Политика конфиденциальности</a>
+  </div>
+
+  <div class="tui-space_top-3">
+    <span class="tui-text_small">© 2023 Graviton. Все права защищены.</span>
+  </div>
+</footer>
+

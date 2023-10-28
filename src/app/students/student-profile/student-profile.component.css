@@ -25,3 +25,16 @@
   grid-area: schedule;
 }
 
+.divider {
+  border-right: 2px solid whitesmoke;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 60px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+

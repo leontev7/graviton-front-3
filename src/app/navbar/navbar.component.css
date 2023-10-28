@@ -1,11 +1,11 @@
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  padding-right: 10%; padding-left: 10%;
+  padding-right: 50px; padding-left: 50px;
   height: 60px;
   display: flex;
   align-items: center;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(40px);
   z-index: 1000;
 }
 

@@ -57,7 +57,7 @@ export class LoginPageComponent implements OnInit {
             this.router.navigate(['/profile']);
             break;
           case "ROLE_ADMIN":
-            this.router.navigate(['/courses']);
+            this.router.navigate(['/students']);
             break;
         }
       }

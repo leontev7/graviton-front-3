@@ -28,6 +28,33 @@ export class WalletComponent {
     )
   }
 
+  getSortedTransactions() {
+    return this.bankAccount.transactions.sort((a, b) => {
+      const dateA = new Date(a.dateTime);
+      const dateB = new Date(b.dateTime);
+
+      if (dateA > dateB) return -1;
+      if (dateA < dateB) return 1;
+      return 0;
+    });
+  }
+
+  getFormattedDate(dateTime: string): string {
+    const months = [
+      'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+      'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+    ];
+    const date = new Date(dateTime);
+
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+
+    return `${day} ${month} в ${hours}:${minutes}`;
+  }
+
+
   constructor(@Inject(TuiPushService) protected readonly push: TuiPushService,
               @Inject(TuiAlertService) protected readonly alert: TuiAlertService,
               private bankService: BankService) {

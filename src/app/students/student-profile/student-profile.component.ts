@@ -12,6 +12,8 @@ import {StudentLevel} from "../student-level";
 export class StudentProfileComponent implements OnInit {
   student: Student | undefined;
 
+  readonly value = [40, 30, 20, 10];
+
   // Levels
   openLevels: boolean = false;
   levels: StudentLevel[] = [];

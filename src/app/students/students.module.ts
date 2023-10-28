@@ -7,6 +7,8 @@ import {ModalComponent} from "../modal/modal.component";
 import {TuiMoneyModule} from "@taiga-ui/addon-commerce";
 import {WalletComponent} from "../bank/wallet/wallet.component";
 import {BankModule} from "../bank/bank.module";
+import {TuiPieChartModule, TuiRingChartModule} from "@taiga-ui/addon-charts";
+import { StudentsComponent } from '../admin/students/students.component';
 
 
 
@@ -24,7 +26,9 @@ import {BankModule} from "../bank/bank.module";
     ModalComponent,
     TuiMoneyModule,
     TuiButtonModule,
-    BankModule
+    BankModule,
+    TuiPieChartModule,
+    TuiRingChartModule
   ]
 })
 export class StudentsModule { }

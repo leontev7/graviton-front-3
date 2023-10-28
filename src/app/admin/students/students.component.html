@@ -1,0 +1,6 @@
+<div style="display: flex; gap: 20px; flex-wrap: wrap">
+  <tui-island [hoverable]="true" *ngFor="let student of students">
+    <tui-avatar [text]="student.firstName" size="m"></tui-avatar>
+    {{student.firstName}}
+  </tui-island>
+</div>

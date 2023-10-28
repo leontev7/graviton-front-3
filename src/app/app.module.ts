@@ -10,7 +10,7 @@ import {
   TuiDataListModule,
   TuiDropdownModule,
   TuiModeModule,
-  TuiTextfieldControllerModule
+  TuiTextfieldControllerModule, TuiLinkModule
 } from "@taiga-ui/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
@@ -22,7 +22,7 @@ import { LoginPageComponent } from './auth/login-page/login-page.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import {TuiBlockStatusModule} from "@taiga-ui/layout";
 import {
-    TuiAvatarModule,
+    TuiAvatarModule, TuiBadgeModule,
     TuiCarouselModule,
     TuiDataListDropdownManagerModule, TuiInputModule,
     TuiIslandModule,
@@ -45,6 +45,10 @@ import {ModalComponent} from "./modal/modal.component";
 import { CoursesComponent } from './courses/courses.component';
 import {TuiMoneyModule} from "@taiga-ui/addon-commerce";
 import {ReactiveFormsModule} from "@angular/forms";
+import { TasksComponent } from './admin/tasks/tasks.component';
+import {StudentsComponent} from "./admin/students/students.component";
+import {TutorsComponent} from "./admin/tutors/tutors.component";
+import { FortuneWheelComponent } from './fortune-wheel/fortune-wheel.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +61,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     AboutPageComponent,
     ProfilePageComponent,
     CoursesComponent,
+    TasksComponent,
+    StudentsComponent,
+    TutorsComponent,
+    FortuneWheelComponent
   ],
   imports: [
     StudentsModule,
@@ -88,7 +96,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     TuiMoneyModule,
     TuiInputModule,
     ReactiveFormsModule,
-    TuiTextfieldControllerModule
+    TuiTextfieldControllerModule,
+    TuiBadgeModule,
+    TuiLinkModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

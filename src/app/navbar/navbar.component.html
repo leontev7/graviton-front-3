@@ -15,10 +15,46 @@
     <a href="/">GRAVITON</a>
   </div>
 
-  <div class="nav-links">
+  <div class="nav-links" *ngIf="userService.getUser()?.role == 'ROLE_STUDENT'">
     <a class="nav-link" [routerLink]="'profile'" routerLinkActive="active">
       Профиль
     </a>
+    <a class="nav-link" [routerLink]="'lessons'" routerLinkActive="active">
+      Занятия
+    </a>
+    <a class="nav-link" [routerLink]="'about'" routerLinkActive="active">
+      О школе
+    </a>
+  </div>
+
+  <div class="nav-links" *ngIf="userService.getUser()?.role == 'ROLE_TUTOR'">
+    <a class="nav-link" [routerLink]="'profile'" routerLinkActive="active">
+      Профиль
+    </a>
+    <a class="nav-link" [routerLink]="'lessons'" routerLinkActive="active">
+      Занятия
+    </a>
+    <a class="nav-link" [routerLink]="'about'" routerLinkActive="active">
+      О школе
+    </a>
+  </div>
+
+  <div class="nav-links" *ngIf="userService.getUser()?.role == 'ROLE_ADMIN'">
+    <a class="nav-link" [routerLink]="'students'" routerLinkActive="active">
+      Ученики
+    </a>
+    <a class="nav-link" [routerLink]="'tutors'" routerLinkActive="active">
+      Преподаватели
+    </a>
+    <a class="nav-link" [routerLink]="'courses'" routerLinkActive="active">
+      Курсы
+    </a>
+    <a class="nav-link" [routerLink]="'tasks'" routerLinkActive="active">
+      Задания
+    </a>
+  </div>
+
+  <div class="nav-links" *ngIf="!userService.getUser()">
     <a class="nav-link" [routerLink]="'lessons'" routerLinkActive="active">
       Занятия
     </a>

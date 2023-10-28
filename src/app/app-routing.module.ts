@@ -10,6 +10,9 @@ import {LessonPageComponent} from "./pages/lesson-page/lesson-page.component";
 import {AboutPageComponent} from "./pages/about-page/about-page.component";
 import {ProfilePageComponent} from "./pages/profile-page/profile-page.component";
 import {CoursesComponent} from "./courses/courses.component";
+import {StudentsComponent} from "./admin/students/students.component";
+import {TutorsComponent} from "./admin/tutors/tutors.component";
+import {TasksComponent} from "./admin/tasks/tasks.component";
 
 const routes: Routes = [
   { path: "", component: MainPageComponent, title: "Graviton – Онлайн школа" },
@@ -17,10 +20,15 @@ const routes: Routes = [
   { path: "about", component: AboutPageComponent, title: "О школе" },
   { path: "lessons", component: LessonPageComponent, title: "Мои занятия" },
 
-  { path: "courses", component: CoursesComponent, title: "Курсы", canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN'] } },
 
   // Role based pages
   { path: "profile", component: ProfilePageComponent, title: "Профиль", canActivate: [AuthGuard], data: { roles: ['ROLE_TUTOR', 'ROLE_STUDENT'] }},
+
+  // Admin
+  { path: "students", component: StudentsComponent, title: "Ученики", canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN'] }},
+  { path: "tutors", component: TutorsComponent, title: "Преподаватели", canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN'] }},
+  { path: "courses", component: CoursesComponent, title: "Курсы", canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN'] } },
+  { path: "tasks", component: TasksComponent, title: "Задания", canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN'] }},
 
   // Errors
   { path: "403", component: ForbiddenPageComponent, title: "Доступ запрещен" }

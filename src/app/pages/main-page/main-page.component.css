@@ -1,26 +1,73 @@
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  margin-left: 15%; margin-right: 15%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  backdrop-filter: blur(10px);
-}
-
-.app-logo {
-  display: flex;
-  align-items: center;
-  margin-right: 40px;
-}
-
-.app-logo span {
-  font-size: 25px;
+.school-title {
+  font-size: 60px;
+  height: 100px;
+  padding-top: 20px;
   font-weight: bold;
-  color: royalblue;
-  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-image: linear-gradient(to right, royalblue, cornflowerblue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.login-nav-item {
-
+footer {
+  margin-top: 100px;
+  text-align: center;
+  background-color: royalblue;
+  padding: 20px 0;
+  margin-left: -50px;
+  margin-right: -50px;
 }
+
+.tui-link {
+  margin: 0 10px;
+  color: whitesmoke;
+}
+
+.tui-link:hover {
+  text-decoration: underline;
+}
+
+.card {
+  max-width: min(250px, 100%);
+}
+
+.card.green {
+  background-color: limegreen;
+}
+
+.card.purple {
+  background-color: purple;
+}
+
+.card.orange {
+  background-color: orange;
+}
+
+.card.blue {
+  background-color: deepskyblue;
+}
+
+.card .card-content {
+  display: flex;
+  gap: 15px;
+}
+
+.card .text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+}
+
+.card .text-content .title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.card .text-content .content {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+
